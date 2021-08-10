@@ -25,7 +25,7 @@ public class CasinoRestController {
 
     @GetMapping("player/balance/{id}")
     @ResponseStatus(code = HttpStatus.OK)
-    public List<PlayerDto> getCasino(@PathVariable int id)
+    public PlayerDto getCasino(@PathVariable int id)
     {
         return  casinoRestServices.getPlayer(id);
     }

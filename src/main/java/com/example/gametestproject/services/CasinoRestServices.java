@@ -4,12 +4,10 @@ import com.example.gametestproject.entities.CasinoRepository;
 import com.example.gametestproject.entities.PlayerDto;
 import com.example.gametestproject.entities.PlayerEntity;
 import ma.glasnost.orika.MapperFacade;
-import net.bytebuddy.implementation.bytecode.Throw;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
 
 @Service
 public class CasinoRestServices {
@@ -23,12 +21,9 @@ public class CasinoRestServices {
         this.mapperFacade = mapperFacade;
     }
 
-    public List<PlayerDto> getPlayer(int id)
+    public PlayerDto getPlayer(int id)
     {
-        List<PlayerDto> playerDtoList = null;
-        PlayerDto playerDto = mapperFacade.map(casinoRepository.findAllByPlayerId(i d), PlayerDto.class);
-        playerDtoList.add(playerDto);
-        return playerDtoList;
+        return mapperFacade.map(casinoRepository.findAllByPlayerId(id), PlayerDto.class);
     }
 
     public PlayerEntity addCasinoUser(PlayerEntity casinoEntity) {
