@@ -25,13 +25,12 @@ public class CasinoRestController {
 
     @GetMapping("player/balance/{id}")
     @ResponseStatus(code = HttpStatus.OK)
-    public PlayerDto getCasino(@PathVariable int id)
-    {
-        return  casinoRestServices.getPlayer(id);
+    public PlayerDto getCasino(@PathVariable int id) {
+        return casinoRestServices.getPlayer(id);
     }
 
     @PostMapping("/player")
-    public PlayerEntity createUser(@RequestBody PlayerEntity casinoEntity){
+    public PlayerEntity createUser(@RequestBody PlayerEntity casinoEntity) {
 
         return casinoRestServices.addCasinoUser(casinoEntity);
     }
@@ -43,7 +42,7 @@ public class CasinoRestController {
     }
 
     @PostMapping("/player/winning")
-    public PlayerDto winning(@RequestBody PlayerDto playerDto){
+    public PlayerDto winning(@RequestBody PlayerDto playerDto) {
 
         return casinoRestServices.winPlayer(playerDto);
     }
